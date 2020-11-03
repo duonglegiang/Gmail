@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Mail</string>
+
+    <string name="search_menu">Search</string>
+
+    <string-array name="emails">
+        <item>anh@gmail.com</item>
+
+    </string-array>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="sample_sender">Facebook</string>
+    <string name="sample_title">Thông báo</string>
+    <string name="sample_brief">Lời mời kb</string>
+    <string name="sample_date">8/2/2020</string>
+    <string name="sample_description">Avatar</string>
+
+    <string name="opening_drawer">opening</string>
+    <string name="closing_drawer">closing</string>
+
+</resources>

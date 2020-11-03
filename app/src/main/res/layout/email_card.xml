@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/email_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#FFFFFF"
+            android:contentDescription="@string/sample_description"
+            android:src="@android:drawable/toast_frame" />
+
+        <TextView
+            android:id="@+id/sender"
+            android:layout_marginLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/avatar"
+            android:layout_toLeftOf="@id/date"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/sample_sender" />
+        <TextView
+            android:id="@+id/subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sender"
+            android:layout_alignLeft="@+id/sender"
+            android:layout_toLeftOf="@id/star"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/sample_title"/>
+        <TextView
+            android:id="@+id/brief"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/subject"
+            android:layout_alignLeft="@+id/subject"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_toLeftOf="@id/star"
+            android:text="@string/sample_brief"/>
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:maxLines="1"
+            android:text="@string/sample_date"/>
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/subject"
+            android:src="@android:drawable/star_off" />
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
