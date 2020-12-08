@@ -1,5 +1,6 @@
 package com.example.gmail;
 
+import android.support.v7.widget.CardView;
 import android.widget.ImageButton;
 
 public class EmailItem {
@@ -9,14 +10,13 @@ public class EmailItem {
     private String brief;
     private String date;
     private boolean isImportant = false;
-    private int star = 0;
-//    public ImageButton star_;
 
     public EmailItem(String sender, String subject, String brief, String date) {
         this.sender = sender;
         this.subject = subject;
         this.brief = brief;
         this.date = date;
+//        this.star_.setTag(0);
     }
 
     public EmailItem(String sender, String subject, String brief, String date, boolean isImportant) {

@@ -25,6 +25,8 @@ import java.util.*;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
+    public static ArrayList<EmailItem> emailItems_star = new ArrayList<EmailItem>();
+
     RecyclerView mRecyclerView, mRecyclerView_star;
     EmailItemAdapter mAdapter, mAdapter_star;
     ImageButton star;
@@ -58,11 +60,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         EmailItem[] email_sample = EmailItem.samples();
         mAdapter = new EmailItemAdapter(email_sample);
-
-
-
         mRecyclerView.setAdapter(mAdapter);
 
+        EmailItem[] emailss = findStar(mRecyclerView);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.opening_drawer, R.string.closing_drawer);
@@ -73,13 +73,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ArrayList<EmailItem> emails = new ArrayList<EmailItem>();
-
     }
 
     public EmailItem[] findStar(RecyclerView mRecyclerView_){
         View v = mRecyclerView_.getLayoutManager().findViewByPosition(0);
-        System.out.println(v);
+        System.out.println(v + "giang");
         EmailItem[] emailss = {
                 new EmailItem("msonline", "Mã kiểm chứng",
                         "Kiểm chứng email", "2/12/2020")};
@@ -92,6 +90,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()){
             case R.id.action_search:
                 break;
+            case R.id.with_star:
+                onBackPressed();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -106,22 +107,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(Gravity.START)){
-            drawer.closeDrawer(Gravity.START);
-        }
-        else{
-            super.onBackPressed();
-        }
-    }
-
-    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(Gravity.START)){
             drawer.closeDrawer(Gravity.START);
         }
+
+        System.out.println("size = " + emailItems_star.size());
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        ArrayList<EmailItem> emails = new ArrayList<EmailItem>();
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, mLayoutManager.getOrientation()));
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mAdapter = new EmailItemAdapter(MainActivity.emailItems_star);
+        mRecyclerView.setAdapter(mAdapter);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        DrawerLayout drawer1 = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle1 = new ActionBarDrawerToggle(this, drawer1, toolbar,
+                R.string.opening_drawer, R.string.closing_drawer);
+
+        drawer1.addDrawerListener(toggle1);
+        toggle1.syncState();
 
         return true;
     }
