@@ -1,5 +1,6 @@
-package br.edu.infnet.clonegmailui;
+package com.example.gmail;
 
+import android.widget.ImageButton;
 
 public class EmailItem {
 
@@ -8,6 +9,8 @@ public class EmailItem {
     private String brief;
     private String date;
     private boolean isImportant = false;
+    private int star = 0;
+//    public ImageButton star_;
 
     public EmailItem(String sender, String subject, String brief, String date) {
         this.sender = sender;
