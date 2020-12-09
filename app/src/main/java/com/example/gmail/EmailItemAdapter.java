@@ -54,6 +54,17 @@ public class EmailItemAdapter extends RecyclerView.Adapter {
         ((EmailItemViewHolder) holder).mSubject.setText(item.getSubject());
         ((EmailItemViewHolder) holder).mbrief.setText(item.getBrief());
         ((EmailItemViewHolder) holder).mDate.setText(item.getDate().toString());
+        ((EmailItemViewHolder) holder).star_.setTag(item.getStar());
+        ((EmailItemViewHolder) holder).star_.getTag();
+
+        Integer resource = (Integer) ((EmailItemViewHolder) holder).star_.getTag();
+        System.out.println("resource " + resource);
+        if(resource == 0){
+            ((EmailItemViewHolder) holder).star_.setImageResource(R.drawable.ic_baseline_star0_24px);
+        }
+        else{
+            ((EmailItemViewHolder) holder).star_.setImageResource(R.drawable.ic_baseline_star1_24px);
+        }
 
     }
 
@@ -80,7 +91,6 @@ public class EmailItemAdapter extends RecyclerView.Adapter {
             mbrief = itemView.findViewById(R.id.brief);
             mDate = itemView.findViewById(R.id.date);
             star_ = itemView.findViewById(R.id.star);
-            star_.setTag(0);
 
             star_.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -93,6 +103,7 @@ public class EmailItemAdapter extends RecyclerView.Adapter {
 
                         EmailItem temp_email = new EmailItem(mSender.getText().toString(), mSubject.getText().toString(),
                                 mbrief.getText().toString(), mDate.getText().toString());
+
                         MainActivity.emailItems_star.add(temp_email);
                     }
                     else{

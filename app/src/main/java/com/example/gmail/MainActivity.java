@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public static ArrayList<EmailItem> emailItems_star = new ArrayList<EmailItem>();
 
-    RecyclerView mRecyclerView, mRecyclerView_star;
-    EmailItemAdapter mAdapter, mAdapter_star;
+    RecyclerView mRecyclerView;
+    EmailItemAdapter mAdapter;
     ImageButton star;
     MenuItem stared;
 
@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
-
     }
 
     public EmailItem[] findStar(RecyclerView mRecyclerView_){
@@ -113,22 +112,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawer.closeDrawer(Gravity.START);
         }
 
-        System.out.println("size = " + emailItems_star.size());
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
-        ArrayList<EmailItem> emails = new ArrayList<EmailItem>();
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, mLayoutManager.getOrientation()));
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
-        mAdapter = new EmailItemAdapter(MainActivity.emailItems_star);
-        mRecyclerView.setAdapter(mAdapter);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-        DrawerLayout drawer1 = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle1 = new ActionBarDrawerToggle(this, drawer1, toolbar,
-                R.string.opening_drawer, R.string.closing_drawer);
-
-        drawer1.addDrawerListener(toggle1);
-        toggle1.syncState();
+        startActivity(new Intent(MainActivity.this, EmailStarred.class));
+//        System.out.println("size = " + emailItems_star.size());
+//        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+//        ArrayList<EmailItem> emails = new ArrayList<EmailItem>();
+//        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, mLayoutManager.getOrientation()));
+//        mRecyclerView.setLayoutManager(mLayoutManager);
+//
+//        for(EmailItem p:MainActivity.emailItems_star){
+//            p.setStar(1);
+////            p.setImageResource(R.drawable.ic_baseline_star0_24px);
+//        }
+//        mAdapter = new EmailItemAdapter(MainActivity.emailItems_star);
+//        mRecyclerView.setAdapter(mAdapter);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//
+//        DrawerLayout drawer1 = findViewById(R.id.drawer_layout);
+//        ActionBarDrawerToggle toggle1 = new ActionBarDrawerToggle(this, drawer1, toolbar,
+//                R.string.opening_drawer, R.string.closing_drawer);
+//
+//        drawer1.addDrawerListener(toggle1);
+//        toggle1.syncState();
 
         return true;
     }

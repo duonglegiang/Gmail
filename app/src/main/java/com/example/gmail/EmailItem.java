@@ -10,13 +10,14 @@ public class EmailItem {
     private String brief;
     private String date;
     private boolean isImportant = false;
+    private int star;
 
     public EmailItem(String sender, String subject, String brief, String date) {
         this.sender = sender;
         this.subject = subject;
         this.brief = brief;
         this.date = date;
-//        this.star_.setTag(0);
+        this.star = 0;
     }
 
     public EmailItem(String sender, String subject, String brief, String date, boolean isImportant) {
@@ -57,6 +58,14 @@ public class EmailItem {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public int getStar() {
+        return star;
+    }
+
+    public void setStar(int star) {
+        this.star = star;
     }
 
     public boolean isImportant() {
