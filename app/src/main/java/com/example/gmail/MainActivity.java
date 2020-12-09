@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_activity_main);
+        setTitle("Inbox");
 
         stared = findViewById(R.id.with_star);
 
@@ -113,26 +114,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         startActivity(new Intent(MainActivity.this, EmailStarred.class));
-//        System.out.println("size = " + emailItems_star.size());
-//        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
-//        ArrayList<EmailItem> emails = new ArrayList<EmailItem>();
-//        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, mLayoutManager.getOrientation()));
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-//
-//        for(EmailItem p:MainActivity.emailItems_star){
-//            p.setStar(1);
-////            p.setImageResource(R.drawable.ic_baseline_star0_24px);
-//        }
-//        mAdapter = new EmailItemAdapter(MainActivity.emailItems_star);
-//        mRecyclerView.setAdapter(mAdapter);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//
-//        DrawerLayout drawer1 = findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle1 = new ActionBarDrawerToggle(this, drawer1, toolbar,
-//                R.string.opening_drawer, R.string.closing_drawer);
-//
-//        drawer1.addDrawerListener(toggle1);
-//        toggle1.syncState();
 
         return true;
     }
