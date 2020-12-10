@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     EmailItemAdapter mAdapter;
     ImageButton star;
     MenuItem stared;
+    public static EmailItem[] emails = EmailItem.samples();
+
+    public static ArrayList<EmailItem> email_sample = new ArrayList<EmailItem>(Arrays.asList(emails));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, mLayoutManager.getOrientation()));
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        EmailItem[] email_sample = EmailItem.samples();
         mAdapter = new EmailItemAdapter(email_sample);
         mRecyclerView.setAdapter(mAdapter);
 

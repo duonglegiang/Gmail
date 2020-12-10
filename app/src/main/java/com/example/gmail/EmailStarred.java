@@ -41,7 +41,7 @@ public class EmailStarred extends AppCompatActivity {
 
         for(EmailItem p:MainActivity.emailItems_star){
             p.setStar(1);
-//            p.setImageResource(R.drawable.ic_baseline_star0_24px);
+
         }
 
         EmailItemAdapter mAdapter = new EmailItemAdapter(MainActivity.emailItems_star);
